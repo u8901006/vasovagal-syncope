@@ -91,8 +91,7 @@ HEADERS = {"User-Agent": "VasovagalSyncopeBot/1.0 (research aggregator)"}
 def build_query(days: int = 7) -> str:
     lookback = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y/%m/%d")
     date_part = f'"{lookback}"[Date - Publication] : "3000"[Date - Publication]'
-    journal_part = " OR ".join([f'"{j}"[Journal]' for j in JOURNALS[:20]])
-    return f"({CORE_BLOCK}) AND ({journal_part}) AND {date_part}"
+    return f"({CORE_BLOCK}) AND {date_part}"
 
 
 def search_papers(query: str, retmax: int = 50) -> list[str]:
