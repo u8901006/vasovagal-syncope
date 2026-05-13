@@ -7,11 +7,12 @@ nutrition, emergency medicine, and rehabilitation literature.
 
 import json
 import sys
+import time
 import argparse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from urllib.request import urlopen, Request
-from urllib.error import URLError
+from urllib.error import URLError, HTTPError
 from urllib.parse import quote_plus
 
 PUBMED_SEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
@@ -99,28 +100,51 @@ def search_papers(query: str, retmax: int = 50) -> list[str]:
         f"?db=pubmed&term={quote_plus(query)}&retmax={retmax}&sort=date&retmode=json"
     )
     url = PUBMED_SEARCH + params
-    try:
-        req = Request(url, headers=HEADERS)
-        with urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read().decode())
-        return data.get("esearchresult", {}).get("idlist", [])
-    except Exception as e:
-        print(f"[ERROR] PubMed search failed: {e}", file=sys.stderr)
-        return []
+    for attempt in range(3):
+        try:
+            req = Request(url, headers=HEADERS)
+            with urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode())
+            return data.get("esearchresult", {}).get("idlist", [])
+        except HTTPError as e:
+            if e.code == 429:
+                wait = 10 * (attempt + 1)
+                print(f"[WARN] Rate limited, waiting {wait}s... (attempt {attempt+1})", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            print(f"[ERROR] PubMed search failed: {e}", file=sys.stderr)
+            return []
+        except Exception as e:
+            print(f"[ERROR] PubMed search failed: {e}", file=sys.stderr)
+            return []
+    return []
 
 
 def fetch_details(pmids: list[str]) -> list[dict]:
     if not pmids:
         return []
-    ids = ",".join(pmids)
-    params = f"?db=pubmed&id={ids}&retmode=xml"
-    url = PUBMED_FETCH + params
-    try:
-        req = Request(url, headers=HEADERS)
-        with urlopen(req, timeout=60) as resp:
-            xml_data = resp.read().decode()
-    except Exception as e:
-        print(f"[ERROR] PubMed fetch failed: {e}", file=sys.stderr)
+    for attempt in range(3):
+        ids = ",".join(pmids)
+        params = f"?db=pubmed&id={ids}&retmode=xml"
+        url = PUBMED_FETCH + params
+        try:
+            req = Request(url, headers=HEADERS)
+            with urlopen(req, timeout=60) as resp:
+                xml_data = resp.read().decode()
+            break
+        except HTTPError as e:
+            if e.code == 429:
+                wait = 15 * (attempt + 1)
+                print(f"[WARN] Rate limited on fetch, waiting {wait}s... (attempt {attempt+1})", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            print(f"[ERROR] PubMed fetch failed: {e}", file=sys.stderr)
+            return []
+        except Exception as e:
+            print(f"[ERROR] PubMed fetch failed: {e}", file=sys.stderr)
+            return []
+    else:
+        print("[ERROR] All fetch attempts failed due to rate limiting", file=sys.stderr)
         return []
 
     papers = []
@@ -219,6 +243,7 @@ def main():
     if len(all_pmids) < args.max_papers // 2:
         print("[INFO] Main query returned few results, trying supplementary queries...", file=sys.stderr)
         for sq in SEARCH_QUERIES[:5]:
+            time.sleep(3)
             lookback = (datetime.now(timezone.utc) - timedelta(days=args.days)).strftime("%Y/%m/%d")
             date_part = f'"{lookback}"[Date - Publication] : "3000"[Date - Publication]'
             extra_pmids = search_papers(f"{sq} AND {date_part}", retmax=10)
@@ -229,23 +254,7 @@ def main():
     all_pmids = all_pmids[:args.max_papers]
     print(f"[INFO] Found {len(all_pmids)} unique papers", file=sys.stderr)
 
-    if not all_pmids:
-        print("NO_CONTENT", file=sys.stderr)
-        tz_taipei = timezone(timedelta(hours=8))
-        if args.json:
-            output_data = {
-                "date": datetime.now(tz_taipei).strftime("%Y-%m-%d"),
-                "count": 0,
-                "papers": [],
-            }
-            out_str = json.dumps(output_data, ensure_ascii=False, indent=2)
-            if args.output == "-":
-                print(out_str)
-            else:
-                with open(args.output, "w", encoding="utf-8") as f:
-                    f.write(out_str)
-                print(f"[INFO] Saved to {args.output}", file=sys.stderr)
-        return
+    time.sleep(5)
 
     papers = fetch_details(all_pmids)
     print(f"[INFO] Fetched details for {len(papers)} papers", file=sys.stderr)
