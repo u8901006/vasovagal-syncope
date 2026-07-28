@@ -5,7 +5,7 @@
 ## 架構
 
 - **資料來源**: PubMed E-utilities API
-- **AI 分析**: Zhipu GLM-5-Turbo（fallback: GLM-4.7 → GLM-4.7-Flash）
+- **AI 分析**: NVIDIA NIM Nemotron 3（主要模型：`nvidia/nemotron-3-super-120b-a12b`；備用模型：`nvidia/nemotron-3-nano-30b-a3b`）
 - **部署**: GitHub Pages
 - **更新頻率**: 每日 GMT+8 08:55
 

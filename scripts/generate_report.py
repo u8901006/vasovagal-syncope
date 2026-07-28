@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate vasovagal syncope daily report HTML using Zhipu AI.
+Generate vasovagal syncope daily report HTML using NVIDIA AI.
 Reads papers JSON, analyzes with AI, generates styled HTML.
-Fallback chain: GLM-5-Turbo -> GLM-4.7 -> GLM-4.7-Flash
+Fallback chain: Nemotron 3 Super -> Nemotron 3 Nano
 """
 
 import json
@@ -16,9 +16,9 @@ from datetime import datetime, timezone, timedelta
 import httpx
 
 API_BASE = os.environ.get(
-    "ZHIPU_API_BASE", "https://open.bigmodel.cn/api/coding/paas/v4"
+    "NVIDIA_API_BASE", "https://integrate.api.nvidia.com/v1"
 )
-MODEL_FALLBACK_CHAIN = ["GLM-5-Turbo", "GLM-4.7", "GLM-4.7-Flash"]
+MODEL_FALLBACK_CHAIN = ["nvidia/nemotron-3-super-120b-a12b", "nvidia/nemotron-3-nano-30b-a3b"]
 
 SYSTEM_PROMPT = (
     "你是血管迷走性暈厥（Vasovagal Syncope）領域的資深研究員與科學傳播者。你的任務是：\n"
@@ -157,9 +157,11 @@ def analyze_papers(api_key: str, papers_data: dict) -> dict:
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
         ],
-        "temperature": 0.3,
-        "top_p": 0.9,
-        "max_tokens": 50000,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "stream": False,
+        "chat_template_kwargs": {"enable_thinking": False},
+        "max_tokens": 16384,
     }
 
     for model in MODEL_FALLBACK_CHAIN:
@@ -410,7 +412,7 @@ def generate_html(analysis: dict) -> str:
       <div class="header-meta">
         <span class="badge badge-date">📅 {date_display}</span>
         <span class="badge badge-count">📊 {total_count} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
       </div>
     </div>
   </header>
@@ -464,13 +466,13 @@ def main():
     parser.add_argument("--input", required=True, help="Input papers JSON file")
     parser.add_argument("--output", required=True, help="Output HTML file")
     parser.add_argument(
-        "--api-key", default=os.environ.get("ZHIPU_API_KEY", ""), help="Zhipu API key"
+        "--api-key", default=os.environ.get("NVIDIA_API_KEY", ""), help="NVIDIA API key"
     )
     args = parser.parse_args()
 
     if not args.api_key:
         print(
-            "[ERROR] No API key provided. Set ZHIPU_API_KEY env var or use --api-key",
+            "[ERROR] No API key provided. Set NVIDIA_API_KEY env var or use --api-key",
             file=sys.stderr,
         )
         sys.exit(1)

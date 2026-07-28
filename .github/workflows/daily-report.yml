@@ -127,15 +127,15 @@ jobs:
           " 2>&1
         timeout-minutes: 2
 
-      - name: Generate report with Zhipu AI
+      - name: Generate report with NVIDIA AI
         if: steps.check.outputs.exists == 'false'
         env:
-          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: |
           python scripts/generate_report.py \
             --input papers.json \
             --output docs/vasovagal-${{ steps.date.outputs.target }}.html \
-            --api-key "${ZHIPU_API_KEY}"
+            --api-key "${NVIDIA_API_KEY}"
         timeout-minutes: 10
 
       - name: Generate index page

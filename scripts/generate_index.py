@@ -59,7 +59,7 @@ index = f"""<!DOCTYPE html>
   <p class="count">共 {total} 期日報</p>
   <ul>{links}</ul>
   <footer>
-    <p>Powered by PubMed + Zhipu AI &middot; <a href="https://github.com/u8901006/vasovagal-syncope">GitHub</a></p>
+    <p>Powered by PubMed + NVIDIA NIM (Nemotron 3) &middot; <a href="https://github.com/u8901006/vasovagal-syncope">GitHub</a></p>
   </footer>
 </div>
 </body>
