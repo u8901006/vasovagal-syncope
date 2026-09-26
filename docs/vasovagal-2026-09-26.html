@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vasovagal Syncope Daily &middot; 血管迷走性暈厥文獻日報 &middot; 2026年9月26日</title>
+<meta name="description" content="2026年9月26日 血管迷走性暈厥文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-section { margin-top: 48px; animation: fadeUp 0.5s ease 0.4s both; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); margin-bottom: 12px; }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">💓</div>
+    <div class="header-text">
+      <h1>Vasovagal Syncope Daily &middot; 血管迷走性暈厥文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年9月26日</span>
+        <span class="badge badge-count">📊 5 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻聚焦於血管迷走性暈厥的神經生理機制與新興介入療法，特別是心臟神經消融術的療效證據與腦波在同步前的腦網絡變化，顯示臨床診斷與治療正從純心血管觀念轉向中樞-周邊自主神經互動模型。</p>
+  </div>
+
+  <div class='section'><div class='section-title'><span class='section-icon'>⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>傾斜桌誘發之反射性暈厥中，心臟抑制前之腦皮質網絡中斷的腦電圖證據</h3>
+          <p class="journal-source">Clinical neurophysiology : official journal of the International Federation of Clinical Neurophysiology &middot; Electroencephalographic evidence of cortical network disruption preceding overt cardioinhibition during tilt-induced reflex syncope.</p>
+          <p>首次證明在心臟抑制發生前，右顳區θ波功能連結與頻譜功率顯著增加，支持皮質處理先於心血管崩潰之機制，開啟腦電圖作為預警診斷工具的可能。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">接受傾斜桌測試之反射性暈厥患者 vs 未發生暈厥者</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">傾斜桌測試中同步前腦電圖活動</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">未發生暈厥者之腦電圖基線</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">同步前右顳區θ波頻譜功率與功能連結顯著增加</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">腦血流灌注</span><span class="tag">傾斜桌測試</span><span class="tag">自主神經系統</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42617512/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">⚡</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>心臟神經消融術治療血管迷走性暈厥：理論、證據與限制的新興療法評述</h3>
+          <p class="journal-source">Giornale italiano di cardiologia (2006) &middot; [Cardioneuroablation for vasovagal syncope: rationale, evidence, and limitations of an emerging therapy].</p>
+          <p>心臟神經消融術對於含心臟抑制成分（特別是停搏型）之血管迷走性暈厥具潛在療效，但證據仍以單中心觀察為主，亟需隨機對照試驗驗證其長期安全與勝過心臟起搏器之優勢。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">嚴重心臟抑制型血管迷走性暈厥患者（特別是停搏型）</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">心臟神經消融術（ ablation of atrial ganglionated plexi）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">安慰劑、心臟起搏器或標準保守治療</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">暈厥復發率減少與疾病負荷降低（但證據品質有限）</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">心臟神經消融</span><span class="tag">治療</span><span class="tag">心臟節律器</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42788301/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">💓</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>無前兆 vs 有前兆血管迷走性暈厥之腦血流動力學比較：前瞻性研究證明早期腦灌流不足為高危 subtypes 的客觀生物標誌</h3>
+          <p class="journal-source">Blood pressure &middot; Comparison of cardio-cerebral hemodynamics in non-prodromal and prodromal vasovagal syncope: a prospective comparative study.</p>
+          <p>無前兆暈厥患者較老、男性較多、基礎腦血流速較低，且腦血流下降先於血壓變化，提示其具早期腦灌流不足特徵，與較高跌倒風險相關，可作診斷依據。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">無前兆血管迷走性暈厥 (n=34)、有前兆血管迷走性暈厥 (n=118)、對照組 (n=69)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">頭部傾斜桌測試結合經顱多普勒（TCD）監測腦血流速</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">有前兆組與對照組</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">無前兆組基礎腦血流速較低（55 vs 60 cm/s），腦血流下降先於血壓變化，仰臥後收縮壓反彈較大</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">腦血流灌注</span><span class="tag">傾斜桌測試</span><span class="tag">跌倒與傷害</span><span class="tag">老年暈厥</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42599143/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#4</span>
+            <span class="emoji-icon">💊</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>氟氫可塞松與米多鼻提升門診血壓生物標誌與改善暈厥前症狀之實世界效能</h3>
+          <p class="journal-source">Blood pressure &middot; The effect of fludrocortisone and midodrine on ambulatory blood pressure biomarkers and symptoms of syncope.</p>
+          <p>氟氫可塞松顯著提升整體及最低收縮壓、減少低壓Episodes，並改善超過70%患者之暈厥前症狀；米多鼻效果較有限，主要見於≥65歲 subgroup，提示兩藥物在不同族群具不同反應 pattern。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">血管迷走性暈厥/低血壓表型及姿勢性低血壓患者 (n=110，中位年齡57歲，77%女性)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">開始或加劑氟氫可塞松 vs 米多鼻</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">用藥前後之同一組別</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">氟氫可塞松：收縮壓上升、低壓dips減少、73.7%暈厥前症狀改善；米多鼻：僅在特定 subgroup達統計顯著性，64.2%症狀改善</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">藥物治療</span><span class="tag">營養與水分</span><span class="tag">鹽分補充</span><span class="tag">老年暈厥</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41542998/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#5</span>
+            <span class="emoji-icon">❤️‍🩹</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>迷走神經激活對心房與心室不應期及心房顫動之影響：消融前後比較分析</h3>
+          <p class="journal-source">Heart rhythm &middot; Impact of vagal effect on atrial and ventricular refractoriness and atrial fibrillation: A comparative analysis before and after cardioneuroablation.</p>
+          <p>迷走神經激活顯著縮短心房不應期並誘發心房顫動，但對心室不應期無影響；消融後迷走神經對心房之影響被阻斷，支持心臟神經消融具有房室選擇性及其在防治迷走性心房顫動之潛力。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">接受肺靜脈隔離併心臟神經消融之室性顫動患者 (n=76)及單獨接受消融之反射性暈厥患者 (n=13)</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">體外迷走神經刺激 (ECVS) 在消融前後之心房/心室不應期測量</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">基線、ECVS、消融後、消融後+ECVS 四個階段</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">ECVS顯著縮短心房不應期（RA: 213→100ms, LA: 235→143ms），心室不應期無變化；消融後ECVS不再影響心房不應期；心房顫動誘發率由基線3.4%上升至ECVS時95.5%，消融後降至7.9%</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">心律不整</span><span class="tag">心臟神經消融</span><span class="tag">自主神經系統</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41093158/" target="_blank">閱讀原文 →</a>
+          </div>
+        </div></div>
+
+  
+
+  <div class='topic-section section'><div class='section-title'><span class='section-icon'>📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">病理生理學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">3</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">治療</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:66%"></div></div>
+              <span class="topic-count">2</span>
+            </div></div>
+
+  <div class='keywords-section section'><div class='section-title'><span class='section-icon'>🏷️</span>關鍵字</div><div class='keywords'><span class="keyword">血管迷走性暈厥</span><span class="keyword">心臟神經消融</span><span class="keyword">腦電圖</span><span class="keyword">腦血流動力學</span><span class="keyword">氟氫可塞松</span><span class="keyword">米多鼻</span><span class="keyword">迷走神經</span><span class="keyword">心房顫動</span><span class="keyword">無前兆暈厥</span><span class="keyword">傾斜桌測試</span></div></div>
+
+  <div class="links-section">
+    <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">🏥</span>
+      <span class="link-name">李政洋身心診所首頁</span>
+      <span class="link-arrow">→</span>
+    </a>
+    <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+      <span class="link-icon">📬</span>
+      <span class="link-name">訂閱電子報</span>
+      <span class="link-arrow">→</span>
+    </a>
+    <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+      <span class="link-icon">☕</span>
+      <span class="link-name">Buy Me a Coffee</span>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：nvidia/nemotron-3-super-120b-a12b</span>
+    <span><a href="https://github.com/u8901006/vasovagal-syncope">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
