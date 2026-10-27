@@ -18,7 +18,7 @@ import httpx
 API_BASE = os.environ.get(
     "NVIDIA_API_BASE", "https://integrate.api.nvidia.com/v1"
 )
-MODEL_FALLBACK_CHAIN = ["nvidia/nemotron-3-super-120b-a12b", "nvidia/nemotron-3-nano-30b-a3b"]
+MODEL_FALLBACK_CHAIN = ["nvidia/nemotron-3-ultra-550b-a55b"]
 
 SYSTEM_PROMPT = (
     "你是血管迷走性暈厥（Vasovagal Syncope）領域的資深研究員與科學傳播者。你的任務是：\n"
